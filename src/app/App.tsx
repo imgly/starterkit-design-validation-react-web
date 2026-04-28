@@ -33,9 +33,7 @@ export function App({ editorConfig }: AppProps) {
     await initDesignValidationEditor(instance);
 
     // Load the scene
-    await instance.loadFromURL(
-      resolveAssetPath('/assets/example.scene')
-    );
+    await instance.loadFromURL(resolveAssetPath('/assets/example.scene'));
 
     setCesdk(instance);
   }, []);
