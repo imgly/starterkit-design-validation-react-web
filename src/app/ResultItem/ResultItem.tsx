@@ -5,6 +5,7 @@
  */
 
 import type { ValidationResult } from '../Sidebar/Sidebar';
+import { resolveAssetPath } from '../resolveAssetPath';
 
 import classes from './ResultItem.module.css';
 
@@ -44,7 +45,7 @@ export function ResultItem({
       </div>
       <div className={classes.blockLabel}>
         <img
-          src={iconPath}
+          src={resolveAssetPath(iconPath)}
           alt=""
           className={classes.blockIcon}
           width={16}
