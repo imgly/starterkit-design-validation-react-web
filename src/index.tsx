@@ -1,39 +1,27 @@
 /**
  * CE.SDK Design Validation Editor Starterkit - React Entry Point
  *
- * Editor with design validation rules and compliance checking.
+ * Demonstrates design validation checks using CE.SDK engine APIs.
+ * Validates elements for issues like protruding from page, low resolution, etc.
  *
  * @see https://img.ly/docs/cesdk/js/getting-started/
  */
 
-import type { Configuration } from '@cesdk/cesdk-js';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import type { Configuration } from '@cesdk/cesdk-js';
 
 import { App } from './app/App';
 
-// ============================================================================
-// Configuration
-// ============================================================================
+export const editorConfig: Configuration = {
+  userId: 'starterkit-design-validation-user',
 
-const config: Configuration = {
-  // Unique user identifier for analytics (customize for your app)
-  userId: 'starterkit-design-validation-editor-user'
+  // Local assets for development
 
-  // Local assets (uncomment and set path for self-hosted assets)
-  // baseURL: `/assets/`,
-
-  // License key (required for production)
-  // license: 'YOUR_LICENSE_KEY',
 };
 
-// ============================================================================
-// Initialize React Application
-// ============================================================================
-
-const container = document.getElementById('root');
-if (!container) {
-  throw new Error('Root container not found');
-}
-
-const root = createRoot(container);
-root.render(<App editorConfig={config} />);
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App editorConfig={editorConfig} />
+  </StrictMode>
+);
