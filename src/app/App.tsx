@@ -15,6 +15,7 @@ import { Sidebar } from './Sidebar/Sidebar';
 
 import classes from './App.module.css';
 
+
 interface AppProps {
   editorConfig: Configuration;
 }
