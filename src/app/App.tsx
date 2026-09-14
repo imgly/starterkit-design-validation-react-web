@@ -15,7 +15,6 @@ import { Sidebar } from './Sidebar/Sidebar';
 
 import classes from './App.module.css';
 
-
 interface AppProps {
   editorConfig: Configuration;
 }
@@ -34,7 +33,7 @@ export function App({ editorConfig }: AppProps) {
     await initDesignValidationEditor(instance);
 
     // Load the scene
-    await instance.load(resolveAssetPath('/assets/example.scene'));
+    await instance.loadFromURL(resolveAssetPath('/assets/example.scene'));
 
     setCesdk(instance);
   }, []);
