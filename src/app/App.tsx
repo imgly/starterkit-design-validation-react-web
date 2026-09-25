@@ -10,10 +10,10 @@ import CreativeEditorSDK, { type Configuration } from '@cesdk/cesdk-js';
 import CreativeEditor from '@cesdk/cesdk-js/react';
 
 import { initDesignValidationEditor } from '../imgly';
-import { resolveAssetPath } from '../imgly/resolveAssetPath';
 import { Sidebar } from './Sidebar/Sidebar';
 
 import classes from './App.module.css';
+import { DEMO_ASSETS_BASE_URL } from '../imgly/demo-assets';
 
 
 interface AppProps {
@@ -27,14 +27,12 @@ export function App({ editorConfig }: AppProps) {
   const handleInit = useCallback(async (instance: CreativeEditorSDK) => {
     cesdkRef.current = instance;
 
-    // Debug access (remove in production)
-    (window as any).cesdk = instance;
 
     // Initialize editor with CE.SDK configuration
     await initDesignValidationEditor(instance);
 
     // Load the scene
-    await instance.load(resolveAssetPath('/assets/example.scene'));
+    await instance.load(`${DEMO_ASSETS_BASE_URL}/assets/example.scene`);
 
     setCesdk(instance);
   }, []);
